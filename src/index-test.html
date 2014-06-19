@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/libs/openfb.js"></script>
+        <script>
+            
+// // template for new oauth2 service            
+// function oauth2_login() {
+//             $.oauth2({
+//                 auth_url: 'https://accounts.spotify.com/authorize/',           // required
+//                 response_type: 'token',      // required - "code"/"token"
+//                 //token_url: 'https://accounts.spotify.com/api/token',          // required if response_type = 'code'
+//                 //logout_url: '',         // recommended if available
+//                 client_id: '829a1ca939014906b618305f7c5ad1c5',          // required
+//                 //client_secret: 'ba68304187694b3cac1698c4f1aae744',      // required if response_type = 'code'
+//                 redirect_uri: 'https://www.facebook.com/connect/login_success.html',       // required - some dummy url
+//                 other_params: {scope: 'user-read-private playlist-read playlist-read-private'}        // optional params object for scope, state, display...
+//             }, function(token, response){
+//                 // do something with token or response
+//                 $("#logs").append("<p class='success'><b>access_token: </b>"+token+"</p>");
+//                 $("#logs").append("<p class='success'><b>response: </b>"+JSON.stringify(response)+"</p>");
+//             }, function(error, response){
+//                 // do something with error object
+//                 $("#logs").append("<p class='error'><b>error: </b>"+JSON.stringify(error)+"</p>");
+//                 $("#logs").append("<p class='error'><b>response: </b>"+JSON.stringify(response)+"</p>");
+//             });
+// }
+       
+        </script>
+        <style>
+            body{background-color:white;font-family: Arial;margin: 0}
+            .content {padding: 0 20px}
+            .button {text-align: center;padding: 10px;border-radius: 10px;border: 1px solid #777;background-color: #ddd}
+            h1 {text-align: center}
+            p.success {background-color: #efe; padding:5px}
+            p.error {background-color: #fee; padding:5px}
+        </style>    
+        <title>Oauth2 Cordova XDK</title>
+    </head>
+    <body>
+        <div class="content">
+            <h1>Oauth2</h1>
+            <p><div class="button" onclick="login()">Oauth2 Login</div></p>
+            <div id="logs"></div>
+        </div>
+
+<script>
+
+    openFB.init('YOUR_FB_APP_ID'); // Defaults to sessionStorage for storing the Facebook token
+
+//  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
+//  openFB.init('YOUR_FB_APP_ID', 'http://localhost/openfb/oauthcallback.html', window.localStorage);
+
+    function login() {
+        openFB.login('email',
+                function() {
+                    alert('Spotify login succeeded');
+                },
+                function(error) {
+                    alert('Spotify login failed: ' + error.error_description);
+                });
+    }
+
+    // function getInfo() {
+    //     openFB.api({
+    //         path: '/me',
+    //         success: function(data) {
+    //             console.log(JSON.stringify(data));
+    //             document.getElementById("userName").innerHTML = data.name;
+    //         },
+    //         error: errorHandler});
+    // }
+
+    // function share() {
+    //     openFB.api({
+    //         method: 'POST',
+    //         path: '/me/feed',
+    //         params: {
+    //             message: 'Testing Facebook APIs'
+    //         },
+    //         success: function() {
+    //             alert('the item was posted on Facebook');
+    //         },
+    //         error: errorHandler});
+    // }
+
+    // function revoke() {
+    //     openFB.revokePermissions(
+    //             function() {
+    //                 alert('Permissions revoked');
+    //             },
+    //             errorHandler);
+    // }
+
+    // function errorHandler(error) {
+    //     alert(error.message);
+    // }
+
+</script>
+    </body>
+</html>
