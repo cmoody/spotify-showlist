@@ -126,7 +126,7 @@
                     loginWindow.close();
                     oauth2Logout(options);
                     if(access_token){
-                        successCallback(access_token, url.split("#")[1], url);
+                        successCallback(access_token, url.split("#")[1]);
                     } else if(error){
                         errorCallback(error, url.split("#")[1]);
                     }                   

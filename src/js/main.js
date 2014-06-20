@@ -30,7 +30,8 @@ require([
 	var appRouter = new Router();
 	Backbone.history.start();
 
-	if(!localStorage.getItem("code")) {
+	// Change to access_token
+	if(!localStorage.getItem('access_token')) {
 		appRouter.navigate('onboard', true);
 	}
 
