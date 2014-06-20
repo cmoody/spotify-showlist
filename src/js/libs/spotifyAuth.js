@@ -9,6 +9,8 @@ define(function (require) {
 
     var client_id = '829a1ca939014906b618305f7c5ad1c5';
     var redirect_uri = 'http://www.google.com';
+    var token_url = 'https://accounts.spotify.com/api/token';
+    var authorize_url = 'https://accounts.spotify.com/authorize/';
 
     function toQueryString(obj) {
         var parts = [];
@@ -42,7 +44,7 @@ define(function (require) {
             };
 
             var authWindow = window.open(
-                "https://accounts.spotify.com/authorize/?" + toQueryString(params), '_blank', 'location=yes'
+                authorize_url + '?' + toQueryString(params), '_blank', 'location=yes'
             );
 
 			$(authWindow).on('loadstart', function(e) {
@@ -56,13 +58,16 @@ define(function (require) {
 
 	            if (code || error){
 	                authWindow.close();
-                    //alert(code);
 	            }
-			});  
+			});
+
+            $(authWindow).on('exit', function() {
+                window.location = '#';
+            });
         },
 
         getAuthToken: function() {
-        	
+        	// Post to token_url
         }
 
     };

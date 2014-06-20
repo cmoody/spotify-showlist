@@ -30,9 +30,8 @@ require([
 	var appRouter = new Router();
 	Backbone.history.start();
 
-	// if(!localStorage.getItem("code")) {
-	// 	//spotifyAuth.granAccess();
-	// 	appRouter.navigate('onboard', true);
-	// }
+	if(!localStorage.getItem("code")) {
+		appRouter.navigate('onboard', true);
+	}
 
 });

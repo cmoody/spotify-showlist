@@ -6,7 +6,7 @@ define(function(require) {
 	var Backbone = require('backbone');
 
 	// Libs
-	var spotifyAPI = require('libs/spotifyAPI');
+	var spotifyAuth = require('libs/spotifyAuth');
 
 	// Template
     var tpl = require('text!app/onboard/tpl/onbaord.html');
@@ -30,7 +30,7 @@ define(function(require) {
 		},
 
 		authorize: function() {
-			spotifyAPI.grantAccess();
+			spotifyAuth.grantAccess();
 		}
 	});
 

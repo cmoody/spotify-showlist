@@ -6,7 +6,7 @@ define(function(require) {
 	var Backbone = require('backbone');
 
 	// Libs
-	var spotifyAuth = require('libs/spotifyAuth');
+	//var spotifyAuth = require('libs/spotifyAuth');
 
 	// Template
     var tpl = require('text!app/home/tpl/home.html');
@@ -16,7 +16,7 @@ define(function(require) {
 		className: 'home',
 
 		events: {
-			'tap .button': 'oauth'
+			//'tap .button': 'oauth'
 		},
 
 		initialize: function() {
