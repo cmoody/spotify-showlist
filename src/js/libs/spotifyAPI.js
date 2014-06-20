@@ -16,7 +16,17 @@ define(function (require) {
 			  if (err) console.error(err);
 			  else console.log('Artist albums', data);
 			});
-    	}
+    	},
+
+        getPlaylist: function() {
+            SpotifyWebApi.setAccessToken('<here_your_access_token>');
+            spotifyApiWithToken.getUserPlaylists('jmperezperez')
+              .then(function(data) {
+                console.log('User playlists', data);
+              }, function(err) {
+                console.error(err);
+              });
+        }
 
     };
 

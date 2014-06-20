@@ -8,7 +8,7 @@ define(function (require) {
     var $ = require('jquery');
 
     var client_id = '829a1ca939014906b618305f7c5ad1c5';
-    var redirect_uri = 'http://www.chasemoody.com/oauthCallback';
+    var redirect_uri = 'http://www.google.com';
 
     function toQueryString(obj) {
         var parts = [];
@@ -19,6 +19,17 @@ define(function (require) {
         }
         return parts.join("&");
     }
+
+    String.prototype.getParam = function( str ){
+        str = str.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regex = new RegExp( "[\\?&]*"+str+"=([^&#]*)" );    
+        var results = regex.exec( this );
+        if( results == null ){
+            return "";
+        } else {
+            return results[1];
+        }
+    } 
 
     var spotifyAuth = {
 
@@ -31,12 +42,12 @@ define(function (require) {
             };
 
             var authWindow = window.open(
-                "https://accounts.spotify.com/authorize?" + toQueryString(params), '_blank', 'location=yes');
+                "https://accounts.spotify.com/authorize/?" + toQueryString(params), '_blank', 'location=yes'
             );
 
 			$(authWindow).on('loadstart', function(e) {
 			    var url = e.originalEvent.url;
-            
+
 	           	url = url.split("#")[0];   
 	            var code = url.getParam("code");
 	            var error = url.getParam("error");
@@ -44,9 +55,10 @@ define(function (require) {
 	            localStorage.setItem("code", code);
 
 	            if (code || error){
-	                loginWindow.close();
+	                authWindow.close();
+                    //alert(code);
 	            }
-			}
+			});  
         },
 
         getAuthToken: function() {

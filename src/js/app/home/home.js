@@ -1,9 +1,12 @@
 define(function(require) {
 	"use strict";
 
-	// Libs
+	// Vendor
 	var $ = require('jquery');
 	var Backbone = require('backbone');
+
+	// Libs
+	var spotifyAuth = require('libs/spotifyAuth');
 
 	// Template
     var tpl = require('text!app/home/tpl/home.html');
@@ -27,28 +30,27 @@ define(function(require) {
 		},
 
 		oauth: function() {
-			$.oauth2({
-		        auth_url: 'https://accounts.spotify.com/authorize/',           // required
-		        response_type: 'token',      // required - "code"/"token"
-		        //token_url: 'https://accounts.spotify.com/api/token',          // required if response_type = 'code'
-		        //logout_url: '',         // recommended if available
-		        client_id: '829a1ca939014906b618305f7c5ad1c5',          // required
-		        //client_secret: 'ba68304187694b3cac1698c4f1aae744',      // required if response_type = 'code'
-		        redirect_uri: 'http://www.google.com',       // required - some dummy url
-		        other_params: {scope: 'user-read-private playlist-read playlist-read-private'}        // optional params object for scope, state, display...
-		    }, function(token, response){
-
-		    	// Trigger isloggedin
-		    	// set to localStorage tokens
-
-		        // do something with token or response
-		        $("#logs").append("<p class='success'><b>access_token: </b>"+token+"</p>");
-		        $("#logs").append("<p class='success'><b>response: </b>"+JSON.stringify(response)+"</p>");
-		    }, function(error, response){
-		        // do something with error object
-		        $("#logs").append("<p class='error'><b>error: </b>"+JSON.stringify(error)+"</p>");
-		        $("#logs").append("<p class='error'><b>response: </b>"+JSON.stringify(response)+"</p>");
-		    });
+			// $.oauth2({
+		 //        auth_url: 'https://accounts.spotify.com/authorize/',           // required
+		 //        response_type: 'token',      // required - "code"/"token"
+		 //        //token_url: 'https://accounts.spotify.com/api/token',          // required if response_type = 'code'
+		 //        //logout_url: '',         // recommended if available
+		 //        client_id: '829a1ca939014906b618305f7c5ad1c5',          // required
+		 //        //client_secret: 'ba68304187694b3cac1698c4f1aae744',      // required if response_type = 'code'
+		 //        redirect_uri: 'http://www.google.com',       // required - some dummy url
+		 //        other_params: {scope: 'user-read-private playlist-read playlist-read-private'}        // optional params object for scope, state, display...
+		 //    }, function(token, response, url){
+		 //        // do something with token or response
+		 //        $("#logs").append("<p class='success'><b>access_token: </b>"+token+"</p>");
+		 //        $("#logs").append("<p class='success'><b>response: </b>"+JSON.stringify(response)+"</p>");
+		 //        $("#logs").append("<p class='success'><b>URL: </b>"+url+"</p>");
+		 //    }, function(error, response){
+		 //        // do something with error object
+		 //        $("#logs").append("<p class='error'><b>error: </b>"+JSON.stringify(error)+"</p>");
+		 //        $("#logs").append("<p class='error'><b>response: </b>"+JSON.stringify(response)+"</p>");
+		 //    });
+			
+			spotifyAuth.grantAccess();
 		}
 	});
 
