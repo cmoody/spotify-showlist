@@ -21,8 +21,8 @@ define(function(require) {
 		},
 
 		render: function() {
-			this.$el.html(template()); 
-			
+			this.$el.html(template());
+
 			return this;
 		},
 
@@ -34,7 +34,7 @@ define(function(require) {
 		        //logout_url: '',         // recommended if available
 		        client_id: '829a1ca939014906b618305f7c5ad1c5',          // required
 		        //client_secret: 'ba68304187694b3cac1698c4f1aae744',      // required if response_type = 'code'
-		        redirect_uri: 'http://localhost:8000/',       // required - some dummy url
+		        redirect_uri: 'http://www.google.com',       // required - some dummy url
 		        other_params: {scope: 'user-read-private playlist-read playlist-read-private'}        // optional params object for scope, state, display...
 		    }, function(token, response){
 
