@@ -25,7 +25,7 @@ require([
 	'app/router',
 	'libs/delegateEvents',
 	'oauth2'
-], function(Router, spotifyAuth) {
+], function(Router) {
 
 	var appRouter = new Router();
 	Backbone.history.start();

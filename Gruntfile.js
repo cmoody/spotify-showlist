@@ -143,7 +143,7 @@ module.exports = function(grunt) {
     // Expand to pass in : param
     shell: {
         cordova: {
-          command: 'cd Cordova && cordova build ios'
+          command: 'cd Cordova && cordova build'
         },
         ipa: {
           command: ''

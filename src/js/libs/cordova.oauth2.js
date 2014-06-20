@@ -86,7 +86,6 @@
 
         // check if redirect url has code, access_token or error 
         $(loginWindow).on('loadstart', function(e) {
-            debugger;
             var url = e.originalEvent.url;
        
             // if authorization code method check for code/error in url param

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>29A290B5-FAC4-4A83-BD31-7CAAE6027A06</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SpotifyShowlist</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>99DB5842-377C-41EB-81AC-0667AB7A9BDD</key>
+		<string>https://github.com/cmoody/spotify-showlist.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Cordova/platforms/ios/SpotifyShowlist.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>99DB5842-377C-41EB-81AC-0667AB7A9BDD</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cmoody/spotify-showlist.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>99DB5842-377C-41EB-81AC-0667AB7A9BDD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>99DB5842-377C-41EB-81AC-0667AB7A9BDD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>spotify-showlist</string>
+		</dict>
+	</array>
+</dict>
+</plist>
